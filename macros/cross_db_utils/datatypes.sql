@@ -20,6 +20,9 @@
     varchar
 {% endmacro %}
 
+{% macro sqlserver__type_string() %}
+    varchar(100)
+{% endmacro %}
 
 
 {# timestamp  -------------------------------------------------     #}
