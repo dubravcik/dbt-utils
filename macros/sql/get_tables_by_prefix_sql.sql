@@ -13,6 +13,17 @@
 
 {% endmacro %}
 
+{% macro sqlserver__get_tables_by_prefix_sql(schema, prefix, exclude='', database=target.database) %}
+
+        select distinct 
+            table_schema as "table_schema", table_name as "table_name"
+        from {{database}}.information_schema.tables
+        where table_schema like '{{ schema }}'
+        and table_name like '{{ prefix }}%'
+        and table_name not like '{{ exclude }}'
+
+{% endmacro %}
+
 
 {% macro bigquery__get_tables_by_prefix_sql(schema, prefix, exclude='', database=target.database) %}
     
