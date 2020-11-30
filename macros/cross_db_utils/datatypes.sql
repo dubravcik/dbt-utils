@@ -21,7 +21,7 @@
 {% endmacro %}
 
 {% macro sqlserver__type_string() %}
-    varchar(100)
+    varchar(4000)
 {% endmacro %}
 
 
